@@ -9,3 +9,6 @@ faiss-cpu
 pypdf
 sentence-transformers
 numpy
+torch
+torchvision
+torchaudio
