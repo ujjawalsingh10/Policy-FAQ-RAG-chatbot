@@ -17,7 +17,15 @@ with st.sidebar:
     embed_model = st.text_input("Embedding model", "sentence-transformers/all-MiniLM-L6-v2")
     db_dir = st.text_input("Vector DB directory", "vectordb")
     top_k = st.slider("Top-K retrieved chunks", 1, 8, 4)
-
+    
+    st.markdown("---")
+    
+    # Reset Chat Option
+    if st.button("🗑️ Reset Chat"):
+        st.session_state.messages = []
+        st.session_state.pipeline = None
+        st.rerun()  # Forces the app to reload with fresh state
+        
     # Path check relative to project root
     index_path = PROJECT_ROOT / db_dir / "index.faiss"
     if index_path.exists():
